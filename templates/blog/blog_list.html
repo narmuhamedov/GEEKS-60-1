@@ -1,0 +1,26 @@
+{% load static %}
+
+
+
+   <h1>Список новостей</h1>
+
+<ul class="news-list">
+    <!-- тут обращаемся к ключу во views.py который прописываем в нашем случае это blog -->
+    {% for i in blog %}
+    <li class="news-card">
+        <!-- Передача переменных из models.py name_blog -->
+        <h3>{{ i.name_blog }}</h3>
+        <!-- Передача переменных из models.py image -->
+        <img src="{{ i.image.url }}" alt="" width="300" height="400">
+        <br>
+        <!-- Передача переменных из models.py created_at -->
+        <data>{{ i.created_at }}</data>
+        <br>
+        <!-- Передача ссылки на получение id - используем ссылку и i.id  -->
+        <button><a href="/blog_list/{{ i.id }}/">Читать далее</a></button>
+    </li>
+    {% endfor %}
+</ul>
+
+
+

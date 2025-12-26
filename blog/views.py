@@ -1,5 +1,40 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from blog.models import Blog
+
+#Получение данных
+def blog(request):
+    if request.method == "GET":
+        #query - запрос из Базы данных указывает под видом переменной blog
+        blog = Blog.objects.all()
+        #Указываем где будем возвращать 
+    return render(
+        #в нашем запросе
+        request,
+        #в каком html шаблоне
+        template_name='blog/blog_list.html',
+        # blog который в кавычках это ключ который будет передан 
+        #на html шаблон - и затем будет вывод данных
+        context={
+            'blog': blog
+        } 
+    )
+
+#BLog detail
+def blog_detail(request, id):
+    if request.method == "GET":
+        blog_id = get_object_or_404(Blog, id=id)
+    return render(
+        request, 
+        template_name='blog/blog_detail.html',
+        context={
+            'blog_id': blog_id
+        }
+    )
+
+
+
+
 
 
 def first_blog(request):
