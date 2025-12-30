@@ -1,43 +1,67 @@
 {% load static %}
 
+{% include '../header.html' %}
 
+<link rel="stylesheet" href="{% static 'styles/style.css' %}">
   <!-- Во всех двойных фигурных скобках - передаем ключ из views.py и названия поля из models.py -->
 
-   <div class="news-detail">
+<main class="news-detail-container">
 
-    <h1 class="news-title">{{ blog_id.name_blog }}</h1>
+    <!-- Detail -->
+    <section class="news-detail">
+        <h1 class="news-title">{{ blog_id.name_blog }}</h1>
 
-    <div class="news-media">
-        <img src="{{ blog_id.image.url }}" alt="{{ blog_id.title }}">
-    </div>
+        <div class="news-media">
+            <img
+                src="{{ blog_id.image.url }}"
+                alt="{{ blog_id.name_blog }}"
+                class="news-image"
+            >
+        </div>
 
-    <p class="news-description">{{ blog_id.description }}</p>
-    <p class="news-category">Категория: {{ blog_id.type_blog }}</p>
+        <p class="news-description">
+            {{ blog_id.description }}
+        </p>
 
-    <data class="news-date">{{ blog_id.created_at }}</data>
+        <div class="news-meta">
+            <span class="news-category">
+                Категория: {{ blog_id.type_blog }}
+            </span>
+            <time class="news-date">
+                {{ blog_id.created_at }}
+            </time>
+        </div>
+    </section>
 
-</div>
+    <!-- Comments -->
+    <section class="comments">
+        <h3 class="comments-title">Отзывы</h3>
 
-<!-- Comments -->
-<div class="comments">
-  <h3 class="comments-title">Отзывы</h3>
-  {% for i in news_id.review.all %}
-  <ul>
-    <li>
-      <p class="rating">Оценка: 
-        <span class="stars" aria-hidden="true">
-          <span class="star filled">{{ i.marks }}</span>
-        </span>
-      </p>
+        {% if blog_id.review.all %}
+            <ul class="comments-list">
+                {% for i in blog_id.review.all %}
+                <li class="comment-item">
+                    <p class="comment-rating">
+                        Оценка:
+                        <span class="stars">{{ i.marks }}/5</span>
+                    </p>
 
-      <p class="review">Отзыв: {{ i.text }}</p>
+                    <p class="comment-text">
+                        {{ i.text }}
+                    </p>
 
-      <p class="date">Дата: {{ i.created_at }}</p>
-    </li>
+                    <time class="comment-date">
+                        {{ i.created_at }}
+                    </time>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-comments">Нет отзывов</p>
+        {% endif %}
+    </section>
 
-  </ul>
-  {% endfor %}
-</div>
+</main>
 
 
-
+{% include '../footer.html' %}

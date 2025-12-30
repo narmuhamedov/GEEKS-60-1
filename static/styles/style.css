@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* iframe layout */
+.layout-frame {
+    width: 100%;
+    border: none;
+}
+
+/* Header */
+header {
+    background: #222;
+}
+
+.navbar {
+    width: 90%;
+    margin: auto;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 12px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    background: #444;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #333;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Admin */
+.admin {
+    background: #b30000;
+}
+
+/* Content */
+.content {
+    padding: 40px;
+    min-height: 70vh;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+
+/* для блога */
+/* Контейнер */
+.news-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Заголовок */
+.news-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Список */
+.news-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Карточка */
+.news-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    background: #fff;
+}
+
+/* Название */
+.news-name {
+    margin-bottom: 10px;
+}
+
+/* Картинка */
+.news-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Дата */
+.news-date {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Кнопка */
+.news-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.news-button:hover {
+    background: #444;
+}
+
+
+/*Подробная информация о блоге*/
+/* Контейнер */
+.news-detail-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ===== DETAIL ===== */
+.news-detail {
+    margin-bottom: 50px;
+}
+
+.news-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.news-media {
+    margin-bottom: 20px;
+}
+
+.news-image {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.news-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===== COMMENTS ===== */
+.comments {
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+}
+
+.comments-title {
+    margin-bottom: 20px;
+}
+
+.comments-list {
+    list-style: none;
+}
+
+.comment-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.comment-rating {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stars {
+    color: #ff9800;
+}
+
+.comment-text {
+    margin-bottom: 10px;
+}
+
+.comment-date {
+    font-size: 13px;
+    color: #777;
+}
+
+.no-comments {
+    color: #777;
+    font-style: italic;
+}

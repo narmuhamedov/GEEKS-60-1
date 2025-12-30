@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from blog.models import Blog
-
+from datetime import datetime
 #Получение данных
 def blog(request):
     if request.method == "GET":
@@ -34,6 +34,14 @@ def blog_detail(request, id):
 
 
 
+
+
+# current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+def data_time(request):
+    if request.method == "GET":
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        return HttpResponse(f'Текущее время-{current_time}')
 
 
 

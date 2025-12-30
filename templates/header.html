@@ -1,0 +1,22 @@
+<header>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="{% url 'home_page' %}">Главная</a></li>
+            <li><a href="{% url 'blog_one' %}">Блог</a></li>
+            <li><a href="{% url 'blog_two' %}">О нас</a></li>
+
+            <li class="dropdown">
+                <a href="#">TODO</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Добавить задачу</a></li>
+                    <li><a href="#">Список задач</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Регистрация</a></li>
+            <li><a href="#">Авторизация</a></li>
+            <li><a href="#">Hashtags</a></li>
+            <li><a href="/admin/" class="admin">Админ-панель</a></li>
+        </ul>
+    </nav>
+</header>
