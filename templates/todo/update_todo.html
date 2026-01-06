@@ -1,0 +1,18 @@
+{% load static %}
+
+{% include '../header.html' %}
+
+<link rel="stylesheet" href="{% static 'styles/style.css' %}">
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button-group">
+            <button type="submit">Обновить задачу</button>
+            <button type="reset">Очистить форму</button>
+        </div>
+    </form>
+</div>
+
+
+{% include '../footer.html' %}

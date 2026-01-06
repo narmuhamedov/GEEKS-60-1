@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Blog(models.Model):
-    name_blog = models.CharField(max_length=100)
+    name_blog = models.CharField(max_length=100, verbose_name='enter your name blog')
     image = models.ImageField(upload_to='blog/')
     description = models.TextField()
     TYPE_BLOG = (
@@ -10,10 +10,16 @@ class Blog(models.Model):
         ("Travel", "Travel")
     )
     type_blog = models.CharField(max_length=100, choices=TYPE_BLOG, default="Education")
+    url_blog = models.URLField(verbose_name='Enter your link', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name_blog
+    
+
+    class Meta:
+        verbose_name = 'news'
+        verbose_name_plural = 'news'
 
     # FileField, IntegerField, PostiveIntergerField, URLField - на дом самостоятельно
     # Изучить дома атрибуты - null, verbose_name, blank, 
@@ -38,3 +44,7 @@ class Reviews(models.Model):
     def __str__(self):
         return f'{self.choice_blog} : {self.marks}'
     
+
+    class Meta:
+        verbose_name = 'comment'
+        verbose_name_plural = 'comments'

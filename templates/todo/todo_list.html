@@ -1,0 +1,33 @@
+{% load static %}
+
+{% include '../header.html' %}
+
+<link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+   <main class="news-container">
+    <h1 class="news-title">Список задач</h1>
+
+    <ul class="news-list">
+        {% for i in todo %}
+        <li class="news-card">
+            <h3 class="news-name">{{ i.name_todo }}</h3>
+            <h3 class="news-name">{{ i.plans }}</h3>
+            <h3 class="news-name">{{ i.status }}</h3>
+            <time class="news-date">{{ i.created_at }}</time>
+            <time class="news-date">{{ i.updated_at }}</time>
+            <a href="/todo_list/{{i.id}}/update/" class="news-button">
+                Обновить задачу
+            </a>
+
+            <a href="/todo_list/{{i.id}}/delete/" class="news-button">
+                Удалить задачу
+            </a>
+
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+
+
+{% include '../footer.html' %}
+
