@@ -1,0 +1,31 @@
+{% load static %}
+
+{% include '../header.html' %}
+
+<link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+   <main class="news-container">
+    <h1 class="news-title">Список товаров</h1>
+
+   
+
+    <ul class="news-list">
+        {% for i in all_orders %}
+        <li class="news-card">
+            <h3 class="news-name">{{ i.name_product }}</h3>
+            
+            <h3 class="news-name">{{ i.created_at }}</h3>
+            {% for j in i.customers.all %}
+            
+            <p>
+                <a href="{% url 'akylai' %}">{{ j.name }}</a>
+            </p>
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+
+
+{% include '../footer.html' %}
+

@@ -2,6 +2,27 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from blog.models import Blog
 from datetime import datetime
+
+#Поиск
+def search_view(request):
+    query = request.GET.get('s', '')
+    if query:
+        blog = Blog.objects.filter(name_blog__icontains=query)
+    else:
+        blog = Blog.objects.none
+    return render(
+        request,
+        template_name='blog/blog_list.html',
+        context={
+            'blog': blog
+        } 
+    )
+
+
+
+
+
+
 #Получение данных
 def blog(request):
     if request.method == "GET":
